@@ -1,4 +1,8 @@
 # Frontend-boilerplate
+
+[![npm (scoped)](https://img.shields.io/npm/v/@ngomar/frontend-boilerplate.svg)](https://www.npmjs.com/package/@ngomar/frontend-boilerplate)
+[![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/@ngomar/frontend-boilerplate.svg)](https://www.npmjs.com/package/@ngomar/frontend-boilerplate)
+
 # Features
 * HTML template with optional variables
 * Scss compiler, sourcemaps generator, autoprefixer and minifier
