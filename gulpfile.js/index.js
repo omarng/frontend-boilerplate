@@ -23,10 +23,10 @@ exports.devBuild = gulp.series(
 
 // Development Build with watch mode - npm run start
 exports.watch = gulp.series(
-	gulp.parallel(Scss.BuildTask, gulp.series(Js.ModuleTask, Js.ExtensionTask), Html.MainTask),
+	gulp.parallel(Scss.BuildTask, gulp.series(Js.ModuleTask, Js.ExtensionTask, Js.VersionTask), Html.MainTask),
 	CacheBusting.MainTask,
 	Custom.CleanTask,
-	Watch.MainTask
+	gulp.parallel(Watch.ScssTask, Watch.HtmlTask, Watch.JsTask)
 );
 
 // Mini Task
