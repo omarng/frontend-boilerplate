@@ -1,15 +1,15 @@
 {
 	"name": "@ngomar/frontend-boilerplate",
 	"version": "2.1.1",
-	"description": "Frontend webdevelopment boilerplate",
+	"description": "Frontend web development boilerplate",
 	"main": "main.js",
 	"scripts": {
-		"start": "gulp watch && webpack",
-		"build": "gulp && webpack",
-		"build-dev": "gulp devBuild && webpack",
+		"build": "gulp",
+		"build-dev": "gulp devBuild",
+		"start": "gulp watch",
+		"HtmlTask": "gulp HtmlTask",
 		"JsTask": "gulp JsTask",
 		"ScssTask": "gulp ScssTask",
-		"HtmlTask": "gulp HtmlTask",
 		"CbTask": "gulp CbTask",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -31,6 +31,7 @@
 		"@babel/preset-env": "^7.4.5",
 		"autoprefixer": "^9.6.0",
 		"babel-loader": "^8.0.6",
+		"chalk": "^2.4.2",
 		"cssnano": "^4.1.10",
 		"gulp": "^4.0.2",
 		"gulp-concat": "^2.6.1",
@@ -41,7 +42,7 @@
 		"gulp-sourcemaps": "^2.6.5",
 		"gulp-uglify": "^3.0.2",
 		"rimraf": "^2.6.3",
-		"webpack": "^4.32.2",
+		"webpack": "^4.35.0",
 		"webpack-cli": "^3.3.2"
 	},
 	"dependencies": {
