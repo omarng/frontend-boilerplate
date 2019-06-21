@@ -7,7 +7,9 @@ const defaults = {
 };
 
 module.exports = {
-	MainTask: function htmlMainTask() {
-		return gulp.src(files.htmlPath).pipe(lbInclude({ varDefaults: defaults })).pipe(gulp.dest('dist/'));
-	}
+	MainTask: htmlMainTask
 };
+
+function htmlMainTask() {
+	return gulp.src(files.htmlPath).pipe(lbInclude({ varDefaults: defaults })).pipe(gulp.dest('dist/'));
+}

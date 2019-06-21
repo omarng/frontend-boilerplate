@@ -7,25 +7,28 @@ const CacheBusting = require('./Tasks/CacheBustingTasks'); // CacheBusting task
 const Watch = require('./Tasks/WatchTasks'); // Watch task
 const Custom = require('./Tasks/CustomTasks'); // Custom task
 
-// Production Build - default task - npm run start
+// Production Build - default task - npm run build
 exports.default = gulp.series(
-	gulp.parallel(Scss.ProductionTask, gulp.series(Js.ModuleTask, Js.ExtensionTask), Html.MainTask),
+	gulp.parallel(Html.MainTask, Scss.ProductionTask, gulp.series(Js.ModuleTask, Js.ExtensionTask)),
 	CacheBusting.MainTask,
-	Custom.CleanTask
+	Custom.CleanTask,
+	Custom.WebpackTask
 );
 
-// Development Build - npm run build
+// Development Build - npm run build-dev
 exports.devBuild = gulp.series(
-	gulp.parallel(Scss.BuildTask, gulp.series(Js.ModuleTask, Js.ExtensionTask, Js.VersionTask), Html.MainTask),
+	gulp.parallel(Html.MainTask, Scss.BuildTask, gulp.series(Js.ModuleTask, Js.ExtensionTask, Js.VersionTask)),
 	CacheBusting.MainTask,
-	Custom.CleanTask
+	Custom.CleanTask,
+	Custom.WebpackTask
 );
 
 // Development Build with watch mode - npm run start
 exports.watch = gulp.series(
-	gulp.parallel(Scss.BuildTask, gulp.series(Js.ModuleTask, Js.ExtensionTask, Js.VersionTask), Html.MainTask),
+	gulp.parallel(Html.MainTask, Scss.BuildTask, gulp.series(Js.ModuleTask, Js.ExtensionTask, Js.VersionTask)),
 	CacheBusting.MainTask,
 	Custom.CleanTask,
+	Custom.WebpackTask,
 	gulp.parallel(Watch.ScssTask, Watch.HtmlTask, Watch.JsTask)
 );
 
